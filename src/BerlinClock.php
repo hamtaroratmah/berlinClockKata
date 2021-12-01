@@ -4,7 +4,7 @@ class BerlinClock {
 
     private $_minutesLine;
 
-    public function __construct($minutes){
+    public function __construct($secondes, $minutes, $heures){
         $this->_minutesLine=$this->countMinutes($minutes);
     }
 
