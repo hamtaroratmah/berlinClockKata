@@ -18,6 +18,7 @@ class BerlinClock {
         $this->_clock =  $this->makeClock($secondes, $minutes, $hours);
     }
 
+    //Les fonctions de la clock
     public function countMinutes (int $int): string{
 
         $tmp = $int%5;
@@ -112,7 +113,6 @@ class BerlinClock {
     public function getMinutesLine(){
         return $this->_minutesLine;
     }
-
     /**
      * @return string
      */
@@ -120,19 +120,20 @@ class BerlinClock {
     {
         return $this->_minutesPer5Line;
     }
-
-    public function getHoursLine(): string {
+    /**
+     * @return string
+     */
+    public function getHoursLine(): string
+    {
         return $this->_hoursLine;
     }
-
     /**
-     * @return mixed
+     * @return string
      */
-    public function getHoursPer5Line()
+    public function getHoursPer5Line(): string
     {
         return $this->_hoursPer5Line;
     }
-
     /**
      * @return string
      */
@@ -140,7 +141,6 @@ class BerlinClock {
     {
         return $this->_secondesLine;
     }
-
     /**
      * @return string
      */

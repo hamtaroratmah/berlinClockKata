@@ -197,4 +197,10 @@ class BerlinClockTest extends TestCase{
         $this->assertEquals("X\nOOOO\nOOOX\nYYRYYRYYRYY\nOOOO", $result);
     }
 
+    public function testMakeClockSecondes12Minutes12Heures12ExpectedO_OOXX_OOXX_YYXXXXXXXXX_OOXX() {
+        $clock = new BerlinClock(12, 12, 12);
+        $result = $clock->getClock();
+        $this->assertEquals("O\nOOXX\nOOXX\nYYXXXXXXXXX\nOOXX", $result);
+    }
+
 }
