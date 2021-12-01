@@ -188,8 +188,13 @@ class BerlinClockTest extends TestCase{
     public function testmakeClockSecondes0Minutes0Heures0ExpectedAucuneLumiereAllumeSaufSeconde() {
         $clock = new BerlinClock(0, 0, 0);
         $result = $clock->getClock();
-        echo $result;
         $this->assertEquals("O\nXXXX\nXXXX\nXXXXXXXXXXX\nXXXX", $result);
+    }
+
+    public function testMakeClockSecondes59Minutes59Heures23ExpectedToutAullumeSaufSecondeEt4emeLumiereHeure() {
+        $clock = new BerlinClock(23, 59, 59);
+        $result = $clock->getClock();
+        $this->assertEquals("X\nOOOO\nOOOX\nYYRYYRYYRYY\nOOOO", $result);
     }
 
 }
