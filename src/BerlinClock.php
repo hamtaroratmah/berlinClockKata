@@ -3,9 +3,11 @@
 class BerlinClock {
 
     private $_minutesLine;
+    private $_minutesPer5Line;
 
     public function __construct($secondes, $minutes, $heures){
         $this->_minutesLine=$this->countMinutes($minutes);
+        $this->_minutesPer5Line=$this->countMinutesPer5($minutes);
     }
 
     /**
@@ -33,6 +35,23 @@ class BerlinClock {
         }
 
         return "";
+    }
+
+    public function countMinutesPer5 (int $int): string {
+        $count = $int/5;
+        $ret = "";
+
+        for($i = 1; $i<=11; $i++){
+            if($i <= $count){
+                if($i%3 == 0)
+                    $ret .= "R";
+                else
+                    $ret .= "Y";
+            }else{
+                $ret .= "N";
+            }
+        }
+        return $ret;
     }
 
 }
