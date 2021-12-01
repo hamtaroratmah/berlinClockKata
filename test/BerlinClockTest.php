@@ -179,4 +179,10 @@ class BerlinClockTest extends TestCase{
         $this->assertEquals("O", $result);
     }
 
+    public function testCountSeconds11ExpectedX(){
+        $clock = new BerlinClock(0, 0, 11);
+        $result = $clock->getSecondesLine();
+        $this->assertEquals("X", $result);
+    }
+
 }
