@@ -114,31 +114,31 @@ class BerlinClockTest extends TestCase{
     }
 
     public function testCoutHours1ExpectedOXXX() {
-        $clock = new BerlinClock(0, 0, 1);
+        $clock = new BerlinClock(1, 0, 0);
         $result = $clock->getHoursLine();
         $this->assertEquals("OXXX", $result);
     }
 
     public function testCoutHours2ExpectedOOXX() {
-        $clock = new BerlinClock(0, 0, 2);
+        $clock = new BerlinClock(2, 0, 0);
         $result = $clock->getHoursLine();
         $this->assertEquals("OOXX", $result);
     }
 
     public function testCoutHours3ExpectedOOOX() {
-        $clock = new BerlinClock(0, 0, 3);
+        $clock = new BerlinClock(3, 0, 0);
         $result = $clock->getHoursLine();
         $this->assertEquals("OOOX", $result);
     }
 
     public function testCoutHours4ExpectedOOOO() {
-        $clock = new BerlinClock(0, 0, 4);
+        $clock = new BerlinClock(4, 0, 0);
         $result = $clock->getHoursLine();
         $this->assertEquals("OOOO", $result);
     }
 
     public function testCoutHours5ExpectedXXXX() {
-        $clock = new BerlinClock(0, 0, 5);
+        $clock = new BerlinClock(5, 0, 0);
         $result = $clock->getHoursLine();
         $this->assertEquals("XXXX", $result);
     }
@@ -150,25 +150,25 @@ class BerlinClockTest extends TestCase{
     }
 
     public function testCountHoursPer55ExpectedOXXX() {
-        $clock = new BerlinClock(0, 0, 5);
+        $clock = new BerlinClock(5, 0, 5);
         $result = $clock->getHoursPer5Line();
         $this->assertEquals("OXXX", $result);
     }
 
     public function testCountHoursPer510ExpectedOOXX() {
-        $clock = new BerlinClock(0, 0, 10);
+        $clock = new BerlinClock(10, 0, 10);
         $result = $clock->getHoursPer5Line();
         $this->assertEquals("OOXX", $result);
     }
 
     public function testCountHoursPer515ExpectedOOOX() {
-        $clock = new BerlinClock(0, 0, 15);
+        $clock = new BerlinClock(15, 0, 0);
         $result = $clock->getHoursPer5Line();
         $this->assertEquals("OOOX", $result);
     }
 
     public function testCountHoursPer520ExpectedOOOO() {
-        $clock = new BerlinClock(0, 0, 20);
+        $clock = new BerlinClock(20, 0, 0);
         $result = $clock->getHoursPer5Line();
         $this->assertEquals("OOOO", $result);
     }
@@ -183,6 +183,13 @@ class BerlinClockTest extends TestCase{
         $clock = new BerlinClock(0, 0, 11);
         $result = $clock->getSecondesLine();
         $this->assertEquals("X", $result);
+    }
+
+    public function testmakeClockSecondes0Minutes0Heures0ExpectedAucuneLumiereAllumeSaufSeconde() {
+        $clock = new BerlinClock(0, 0, 0);
+        $result = $clock->getClock();
+        echo $result;
+        $this->assertEquals("O\nXXXX\nXXXX\nXXXXXXXXXXX\nXXXX", $result);
     }
 
 }
