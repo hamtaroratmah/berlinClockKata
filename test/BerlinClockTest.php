@@ -1,6 +1,6 @@
 <?php
 
-require("../src/BerlinClock.php");
+require("src/BerlinClock.php");
 
 use PHPUnit\Framework\TestCase;
 
