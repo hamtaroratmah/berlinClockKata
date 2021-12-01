@@ -87,9 +87,9 @@ class BerlinClock {
 
         for($i = 1; $i<=4; $i++){
             if($i <= $count){
-                $ret .= "R";
+                $ret .= "O";
             }else{
-                $ret .= "N";
+                $ret .= "X";
             }
         }
         return $ret;
