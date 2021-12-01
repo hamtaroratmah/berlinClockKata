@@ -161,5 +161,11 @@ class BerlinClockTest extends TestCase{
         $this->assertEquals("OOXX", $result);
     }
 
+    public function testCountHoursPer515ExpectedOOOX() {
+        $clock = new BerlinClock(0, 0, 15);
+        $result = $clock->getHoursPer5Line();
+        $this->assertEquals("OOOX", $result);
+    }
+
 
 }
