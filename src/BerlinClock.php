@@ -2,46 +2,12 @@
 
 class BerlinClock {
 
-    private $_secondesLine;
-    private $_hoursPer5Line;
-    private $_hoursLine;
-    private $_minutesPer5Line;
     private $_minutesLine;
+    private $_minutesPer5Line;
 
-    public function __construct($hours, $minutes, $secondes){
-        $this->_secondesLine = $this->countSecondes($secondes);
-        $this->_hoursPer5Line = $this->countHoursPer5($hours);
-        $this->_hoursLine = $this->countHours($hours);
-        $this->_minutesPer5Line = $this->countMinutesPer5($minutes);
-        $this->_minutesLine = $this->countMinutes($minutes);
-    }
-
-    /**
-     * @return string
-     */
-    public function getSecondesLine(){
-        return $this->_secondesLine;
-    }
-
-    /**
-     * @return string
-     */
-    public function getHoursPer5Line(){
-        return $this->_hoursPer5Line;
-    }
-
-    /**
-     * @return string
-     */
-    public function getHoursLine(){
-        return $this->_hoursLine;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMinutesPer5Line(){
-        return $this->_minutesPer5Line;
+    public function __construct($secondes, $minutes, $heures){
+        $this->_minutesLine=$this->countMinutes($minutes);
+        $this->_minutesPer5Line=$this->countMinutesPer5($minutes);
     }
 
     /**
@@ -57,16 +23,17 @@ class BerlinClock {
 
         switch ($tmp){
             case 0 :
-                return "NNNN";
+                return "XXXX";
             case 1 :
-                return "YNNN";
+                return "OXXX";
             case 2 :
-                return "YYNN";
+                return "OOXX";
             case 3 :
-                return "YYYN";
+                return "OOOX";
             case 4 :
-                return "YYYY";
+                return "OOOO";
         }
+
         return "";
     }
 
@@ -84,46 +51,7 @@ class BerlinClock {
                 $ret .= "N";
             }
         }
-
         return $ret;
     }
 
-    public function countHours(int $int): string {
-
-        $tmp = $int%5;
-
-        switch ($tmp){
-            case 0 :
-                return "NNNN";
-            case 1 :
-                return "RNNN";
-            case 2 :
-                return "RRNN";
-            case 3 :
-                return "RRRN";
-            case 4 :
-                return "RRRR";
-        }
-        return "";
-    }
-    public function countHoursPer5 (int $int): string {
-        $count = $int/5;
-        $ret = "";
-
-        for($i = 1; $i<=4; $i++){
-            if($i <= $count){
-                $ret .= "R";
-            }else{
-                $ret .= "N";
-            }
-        }
-        return $ret;
-    }
-    public function countSecondes(int $int) : string{
-        $int=$int%2;
-
-        if ($int === 1 ) return "N";
-
-        return "R";
-    }
 }
