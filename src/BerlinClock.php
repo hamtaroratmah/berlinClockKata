@@ -44,14 +44,22 @@ class BerlinClock {
         for($i = 1; $i<=11; $i++){
             if($i <= $count){
                 if($i%3 == 0)
-                    $ret .= "R";
+                    $ret .= "I";
                 else
-                    $ret .= "Y";
+                    $ret .= "O";
             }else{
-                $ret .= "N";
+                $ret .= "X";
             }
         }
         return $ret;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMinutesPer5Line(): string
+    {
+        return $this->_minutesPer5Line;
     }
 
 }
