@@ -119,5 +119,11 @@ class BerlinClockTest extends TestCase{
         $this->assertEquals("OXXX", $result);
     }
 
+    public function testCoutHours2ExpectedOOXX() {
+        $clock = new BerlinClock(0, 0, 2);
+        $result = $clock->getHoursLine();
+        $this->assertEquals("OOXX", $result);
+    }
+
 
 }
