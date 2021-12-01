@@ -1,6 +1,6 @@
 <?php
 
-require("src/BerlinClock.php");
+require("../src/BerlinClock.php");
 
 use PHPUnit\Framework\TestCase;
 
@@ -171,6 +171,12 @@ class BerlinClockTest extends TestCase{
         $clock = new BerlinClock(0, 0, 20);
         $result = $clock->getHoursPer5Line();
         $this->assertEquals("OOOO", $result);
+    }
+
+    public function testCountSeconds0ExpectedO(){
+        $clock = new BerlinClock(0, 0, 0);
+        $result = $clock->getSecondesLine();
+        $this->assertEquals("O", $result);
     }
 
 }

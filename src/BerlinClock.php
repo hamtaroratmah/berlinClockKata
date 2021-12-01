@@ -2,18 +2,18 @@
 
 class BerlinClock {
 
-    private $_minutesLine;
-    private $_minutesPer5Line;
-    private $_hoursLine;
+    private $_secondesLine;
     private $_hoursPer5Line;
+    private $_hoursLine;
+    private $_minutesPer5Line;
+    private $_minutesLine;
 
-
-    public function __construct($secondes, $minutes, $heures){
-        $this->_minutesLine=$this->countMinutes($minutes);
-        $this->_minutesPer5Line=$this->countMinutesPer5($minutes);
-        $this->_hoursLine=$this->countHours($heures);
-        $this->_hoursPer5Line = $this->countHoursPer5($heures);
-
+    public function __construct($hours, $minutes, $secondes){
+        $this->_secondesLine = $this->countSecondes($secondes);
+        $this->_hoursPer5Line = $this->countHoursPer5($hours);
+        $this->_hoursLine = $this->countHours($hours);
+        $this->_minutesPer5Line = $this->countMinutesPer5($minutes);
+        $this->_minutesLine = $this->countMinutes($minutes);
     }
 
     /**
@@ -95,6 +95,14 @@ class BerlinClock {
         return $ret;
     }
 
+    public function countSecondes(int $int) : string{
+        $int=$int%2;
+
+        if ($int === 1 ) return "X";
+
+        return "O";
+    }
+
     /**
      * @return string
      */
@@ -113,6 +121,14 @@ class BerlinClock {
     public function getHoursPer5Line()
     {
         return $this->_hoursPer5Line;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSecondesLine(): string
+    {
+        return $this->_secondesLine;
     }
 
 }
