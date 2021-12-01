@@ -4,10 +4,12 @@ class BerlinClock {
 
     private $_minutesLine;
     private $_minutesPer5Line;
+    private $_hoursLine;
 
     public function __construct($secondes, $minutes, $heures){
         $this->_minutesLine=$this->countMinutes($minutes);
         $this->_minutesPer5Line=$this->countMinutesPer5($minutes);
+        $this->_hoursLine=$this->countHours($heures);
     }
 
     /**
@@ -16,6 +18,8 @@ class BerlinClock {
     public function getMinutesLine(){
         return $this->_minutesLine;
     }
+
+
 
     public function countMinutes (int $int): string{
 
@@ -54,12 +58,33 @@ class BerlinClock {
         return $ret;
     }
 
+    public function countHours(int $int): string {
+
+        $tmp = $int%5;
+
+        switch ($tmp){
+            case 0 :
+                return "XXXX";
+            case 1 :
+                return "OXXX";
+            case 2 :
+                return "OOXX";
+            case 3 :
+                return "OOOX";
+            case 4 :
+                return "OOOO";
+        }
+    }
     /**
      * @return string
      */
     public function getMinutesPer5Line(): string
     {
         return $this->_minutesPer5Line;
+    }
+
+    public function getHoursLine(): string {
+        return $this->_hoursLine;
     }
 
 }
