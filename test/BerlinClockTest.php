@@ -41,4 +41,10 @@ class BerlinClockTest extends TestCase{
         $this->assertEquals("XXXXXXXXXXX", $result);
     }
 
+    public function testCountMinutesPer55ExpectedY10X(){
+        $clock = new BerlinClock(0, 5, 0);
+        $result = $clock->getMinutesPer5Line();
+        $this->assertEquals("YXXXXXXXXXX", $result);
+    }
+
 }

@@ -44,9 +44,9 @@ class BerlinClock {
         for($i = 1; $i<=11; $i++){
             if($i <= $count){
                 if($i%3 == 0)
-                    $ret .= "I";
+                    $ret .= "R";
                 else
-                    $ret .= "O";
+                    $ret .= "Y";
             }else{
                 $ret .= "X";
             }
