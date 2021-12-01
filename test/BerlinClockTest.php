@@ -59,16 +59,23 @@ class BerlinClockTest extends TestCase{
         $this->assertEquals("YYRXXXXXXXX", $result);
     }
 
-    public function testCountMinutesPer520ExpectedYYRY8X(){
+    public function testCountMinutesPer520ExpectedYYRY7X(){
         $clock = new BerlinClock(0, 20, 0);
         $result = $clock->getMinutesPer5Line();
         $this->assertEquals("YYRYXXXXXXX", $result);
     }
 
-    public function testCountMinutesPer525ExpectedYYRYY8X(){
+    public function testCountMinutesPer525ExpectedYYRYY6X(){
         $clock = new BerlinClock(0, 25, 0);
         $result = $clock->getMinutesPer5Line();
         $this->assertEquals("YYRYYXXXXXX", $result);
     }
+
+    public function testCountMinutesPer530ExpectedYYRYYR5X(){
+        $clock = new BerlinClock(0, 30, 0);
+        $result = $clock->getMinutesPer5Line();
+        $this->assertEquals("YYRYYRXXXXX", $result);
+    }
+
 
 }
